@@ -1,4 +1,5 @@
-     :root {
+
+        :root {
             --primary-color: #6366f1;
             --secondary-color: #ec4899;
             --dark-color: #0f172a;
@@ -258,7 +259,6 @@
             box-shadow: var(--shadow);
         }
 
-        /* ===== Projects Section - Updated ===== */
         .project-card {
             background: var(--white);
             border-radius: 20px;
@@ -289,9 +289,16 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        .project-img img {
+        .project-img {
             width: 100%;
             height: 200px;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
@@ -369,7 +376,6 @@
             }
         }
 
-        /* ===== Contact Section - Updated ===== */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -436,7 +442,198 @@
             color: #94a3b8;
         }
 
-        /* ===== Footer - Updated ===== */
+        /* ===== أنماط زر العودة للأعلى ===== */
+        #backToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+            transition: var(--transition);
+            animation: slideIn 0.3s ease;
+        }
+
+        #backToTopBtn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== أنماط إشعارات Toast ===== */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #10b981;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideInRight 0.3s ease;
+            max-width: 400px;
+        }
+
+        .toast.error {
+            background: #ef4444;
+        }
+
+        .toast.warning {
+            background: #f59e0b;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+        }
+
+        .toast.hide {
+            animation: slideOutRight 0.3s ease;
+        }
+
+        /* ===== نافذة معاينة السيرة الذاتية ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            background: var(--light-color);
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: var(--dark-color);
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--gray-600);
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            color: var(--dark-color);
+        }
+
+        .modal-body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .modal-body p {
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+
+        .modal-body a {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .modal-body a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
         footer {
             background: var(--dark-color);
             color: var(--white);
@@ -516,6 +713,21 @@
             .hero-content h1 {
                 font-size: 32px;
             }
+
+            #backToTopBtn {
+                bottom: 20px;
+                left: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .toast {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+                max-width: none;
+            }
         }
 
         @media (max-width: 480px) {
@@ -543,4 +755,18 @@
             .show-more-btn {
                 width: 90%;
             }
+
+            .modal-content {
+                width: 95%;
+                max-height: 95vh;
+            }
+
+            .modal-header {
+                padding: 15px;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
         }
+   

@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقعي الشخصي | خريج تقنية معلومات</title>
+    <meta name="description" content="محفظتي التقنية - موقع شخصي لمحمد عبدالسلام، خريج تقنية معلومات متخصص في تطوير تطبيقات الويب Full Stack باستخدام Laravel والتقنيات الحديثة">
+    <meta name="keywords" content="محمد عبدالسلام, محمد عبدالسلام محمد ناجي, Laravel Developer, PHP Developer, Full Stack Developer, Web Developer, JavaScript, Tailwind CSS, MySQL, خريج تقنية معلومات">
+    <meta name="author" content="محمد عبدالسلام محمد ناجي">
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- Open Graph Meta Tags لمشاركة أفضل على وسائل التواصل -->
+    <meta property="og:title" content="محفظتي التقنية | خريج تقنية معلومات">
+    <meta property="og:description" content="موقع شخصي يعرض مشاريع ومهارات محمد عبدالسلام في تطوير تطبيقات الويب والحلول الرقمية">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Almndob/My-portfolio">
+    <meta property="og:image" content="https://github.com/Almndob/My-portfolio/assets/images/profile.jpg">
+    <meta property="og:image:alt" content="صورة محمد عبدالسلام">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="محفظتي التقنية | خريج تقنية معلومات">
+    <meta name="twitter:description" content="موقع شخصي يعرض مشاريع ومهارات محمد عبدالسلام في تطوير تطبيقات الويب">
+    <meta name="twitter:image" content="https://github.com/Almndob/My-portfolio/assets/images/profile.jpg">
+    
+    <title>محفظتي التقنية | خريج تقنية معلومات - مطور ويب Full Stack</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -41,7 +60,7 @@
             </div>
             <div class="hero-image" data-aos="fade-right">
                 <div class="img-box">
-                    <img src="assets/images/profile.jpg" alt="صورة شخصية">
+                    <img src="assets/images/profile.webp" alt="صورة محمد عبدالسلام - مطور ويب" loading="lazy">
                 </div>
             </div>
         </div>
@@ -60,7 +79,9 @@
                         <p><strong>الاسم:</strong> محمد عبدالسلام محمد ناجي</p>
                         <p><strong>التخصص:</strong> تقنية معلومات</p>
                     </div>
-                    <a href="files/my-cv.pdf" class="btn primary" style="margin-top: 20px;" download="my-cv.pdf">تحميل السيرة الذاتية PDF</a>
+                    <button onclick="openCVPreview()" class="btn primary" style="margin-top: 20px; width: 100%; justify-content: center;">
+                        <i class="fas fa-file-pdf"></i> معاينة السيرة الذاتية
+                    </button>
                 </div>
                 <div class="card" data-aos="fade-up" data-aos-delay="100">
                     <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
@@ -152,14 +173,12 @@
         </div>
     </section>
 
-    <!-- ===== Projects Section - Updated with Show More ===== -->
     <section id="projects" class="projects section-padding">
         <div class="container">
             <div class="section-title">
                 <h2>أبرز <span>مشاريعي</span></h2>
             </div>
             <div class="grid" id="projectsGrid">
-                <!-- المشاريع ستُضاف ديناميكياً -->
             </div>
             <button class="show-more-btn" id="showMoreBtn" onclick="toggleProjects()">
                 <i class="fas fa-chevron-down"></i> عرض الكل
@@ -167,14 +186,13 @@
         </div>
     </section>
 
-    <!-- ===== Contact Section - Updated ===== -->
     <section id="contact" class="contact section-padding">
         <div class="container">
             <div class="section-title">
                 <h2>تواصل <span>معي</span></h2>
             </div>
             <div class="contact-grid">
-                <div class="contact-info">
+              <div class="contact-info">
                     <a href="mailto:alsabry615@gmail.com">
                         <i class="fas fa-envelope"></i>
                         alsabry615@gmail.com
@@ -188,7 +206,7 @@
                         https://github.com/Almndob
                     </a>
                 </div>
-                <form class="contact-form" id="contactForm" onsubmit="sendEmail(event)">
+                <form class="contact-form" id="contactForm" onsubmit="sendViaGmail(event)">
                     <input type="text" id="senderName" placeholder="الاسم" required>
                     <input type="email" id="senderEmail" placeholder="البريد الإلكتروني" required>
                     <textarea id="senderMessage" placeholder="رسالتك..." rows="5" required></textarea>
@@ -200,21 +218,41 @@
         </div>
     </section>
 
-    <!-- ===== Footer - Updated ===== -->
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2026 | صمم بواسطة محمد المندوب</p>
         <div class="social-links">
             <a href="https://github.com/Almndob" target="_blank" class="github" title="GitHub">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://wa.me/967730467534" target="_blank" class="whatsapp" title="واتساب">
+            <a href="https://wa.me/967730467543" target="_blank" class="whatsapp" title="واتساب">
                 <i class="fab fa-whatsapp"></i>
             </a>
         </div>
     </footer>
 
+    <!-- زر العودة للأعلى -->
+    <button id="backToTopBtn" onclick="scrollToTop()" title="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- نافذة معاينة السيرة الذاتية -->
+    <div id="cvModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>معاينة السيرة الذاتية</h2>
+                <button class="close-btn" onclick="closeCVPreview()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>السيرة الذاتية متاحة للتحميل بصيغة PDF</p>
+                <a href="files/my-cv.pdf" download="my-cv.pdf">
+                    <i class="fas fa-download"></i> تحميل السيرة الذاتية
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="assets/js/main.js"></script>
+   <script src="assets/js/main.js"></script>
 </body>
 </html>

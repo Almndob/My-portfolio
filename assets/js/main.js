@@ -230,7 +230,7 @@
                 id: 1,
                 title: "منصة 6Tech للخدمات الطلابية",
                 description: "منصة ويب متكاملة لإدارة وتقديم الخدمات الطلابية، صُممت لتسهيل تواصل الطلاب مع مقدمي الخدمات الأكاديمية، مع نظام لإدارة المستخدمين والطلبات ولوحة تحكم إدارية، وواجهة مستخدم حديثة ومتجاوبة.",
-                image: "assets/images/6Tech.webp",
+                image: "assets/images/6tech.webp",
                 link: "https://6tech-sa.com/",
                 tags: ["Laravel", "Tailwind CSS", "Alpine.js", "MySQL"]
             },

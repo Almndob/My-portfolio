@@ -66,6 +66,7 @@
         .logo {
             font-size: 20px;
             font-weight: 900;
+            
             background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -269,6 +270,83 @@
             transform: translateY(30px);
             display: block;
         }
+        /* ===== أشرطة التقدم للمهارات ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; left: 0;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .skill-card:hover::before { transform: scaleX(1); }
+        .skill-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+        .skill-header { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .skill-icon {
+            width: 55px; height: 55px; border-radius: 15px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; flex-shrink: 0; transition: var(--transition);
+        }
+
+        .skill-card:hover .skill-icon { transform: scale(1.1) rotate(-5deg); }
+        .skill-info h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark-color); }
+        .skill-info span { font-size: 0.85rem; color: var(--gray-600); }
+
+        .progress-bar-bg {
+            width: 100%; height: 10px; background: #e2e8f0;
+            border-radius: 10px; overflow: hidden; position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%; border-radius: 10px; background: var(--gradient);
+            width: 0; transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* ===== زر افتح الموقع للمشاريع ===== */
+         .visit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--gradient);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .visit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
 
         .project-card.visible {
             opacity: 1;
@@ -324,6 +402,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-bottom: 15px;
         }
 
         .tags span {
